@@ -15,13 +15,13 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="#">Contacts</a>
+          <a class="nav-link" [routerLinkActive]="['active']" [routerLink]="['/persons-list']">Contacts</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Add new</a>
+          <a class="nav-link" [routerLinkActive]="['active']" [routerLink]="['/person-details']">Add new</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">About</a>
+          <a class="nav-link" [routerLinkActive]="['active']" [routerLink]="['/about']">About</a>
         </li>
       </ul>
     </div>

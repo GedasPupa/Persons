@@ -8,6 +8,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { AboutComponent } from './components/about/about.component';
 import { AddPersonComponent } from './components/add-person/add-person.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,16 @@ import { AddPersonComponent } from './components/add-person/add-person.component
     AboutComponent,
     AddPersonComponent,
   ],
-  imports: [BrowserModule],
+  imports: [
+    BrowserModule,
+    RouterModule.forRoot([
+      { path: '', component: PersonsListComponent },
+      { path: 'persons-list', component: PersonsListComponent },
+      { path: 'about', component: AboutComponent },
+      { path: 'person-details', component: PersonDetailsComponent },
+      { path: 'person-details/:id', component: PersonDetailsComponent },
+    ]),
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
