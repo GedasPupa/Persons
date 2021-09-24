@@ -1,0 +1,9 @@
+.active {
+  font-weight: bold;
+}
+
+a:hover {
+  transform: scale(1.1);
+  line-height: 23px;
+  transition: all 0.15s;
+}
