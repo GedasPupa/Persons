@@ -1,5 +1,4 @@
 <table class='table'>
-<!-- <table class="table"> -->
   <thead>
     <tr>
       <th>Name</th>
@@ -10,9 +9,8 @@
     </tr>
   </thead>
   <tbody>
-    <!-- <tr *ngFor="let person of filterData"> -->
     <tr *ngIf="person.id !== 0; else noPerson">
-      <td><input type="text" value={{person.id}} ></td>
+      <td><input type="text" value={{person.name}} ></td>
       <td><input type="text" value={{person.surname}}></td>
       <td><input type="text" value={{person.phone}}></td>
       <td><input type="text" value={{person.email}}></td>
@@ -21,21 +19,15 @@
   </tbody>
 </table>
 <ng-template #noPerson>
-  <!-- <p class="alert alert-warning">Sorry, no data found!</p> -->
   <tr>
     <td><input type="text" value=''></td>
     <td><input type="text" value=''></td>
     <td><input type="text" value=''></td>
     <td><input type="text" value=''></td>
     <td><input type="text" value=''></td>
-    <!-- <td>
-    </td> -->
   </tr>
 </ng-template>
 <div class="delete-edit-btns">
   <button class="btn btn-danger" *ngIf="person.id !== 0">Delete</button>
   <button class="btn btn-success">Save</button>
 </div>
-
-
-<!-- <button class="btn btn-success">Save</button> -->
