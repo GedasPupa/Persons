@@ -1,1 +1,28 @@
-<p>persons-list works!</p>
+<label>FILTER:</label>
+<input type="text" (input)="onFilter($event)" class="filter-input"/>
+<br>
+<table class='table' *ngIf="filterData.length > 0; else noProductsWarning">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Surname</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th>Importance</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of filterData">
+      <td><a href="#">{{ ((item.name.charAt(0) | uppercase) + ((item.name).slice(1, item.name.length) | lowercase))}} ({{item.name}})</a></td>
+      <td>{{ ((item.surname.charAt(0) | uppercase) + ((item.surname).slice(1, item.surname.length) | lowercase))}} ({{item.surname}})</td>
+      <td>{{item.phone}}</td>
+      <td>{{item.email}}</td>
+      <td>{{item.importance}}</td>
+      <td><button class="btn btn-danger">X</button></td>
+    </tr>
+  </tbody>
+</table>
+<ng-template #noProductsWarning>
+  <p class="alert alert-warning">Sorry, no data found!</p>
+</ng-template>
