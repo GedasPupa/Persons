@@ -9,6 +9,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { AboutComponent } from './components/about/about.component';
 import { AddPersonComponent } from './components/add-person/add-person.component';
 import { RouterModule } from '@angular/router';
+import { ToSpacePipe } from './pipes/to-space.pipe';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { RouterModule } from '@angular/router';
     FooterComponent,
     AboutComponent,
     AddPersonComponent,
+    ToSpacePipe,
   ],
   imports: [
     BrowserModule,
