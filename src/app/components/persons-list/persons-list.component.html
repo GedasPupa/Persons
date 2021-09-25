@@ -14,12 +14,12 @@
   </thead>
   <tbody>
     <tr *ngFor="let item of filterData">
-      <td><a href="#">{{ ((item.name.charAt(0) | uppercase) + ((item.name).slice(1, item.name.length) | lowercase))}} ({{item.name}})</a></td>
-      <td>{{ ((item.surname.charAt(0) | uppercase) + ((item.surname).slice(1, item.surname.length) | lowercase))}} ({{item.surname}})</td>
+      <td><a [routerLink]="['/person-details', item.id]">{{ ((item.name.charAt(0) | uppercase) + ((item.name).slice(1, item.name.length) | lowercase))}} ({{item.name}})</a></td>
+      <td><a [routerLink]="['/person-details', item.id]">{{ ((item.surname.charAt(0) | uppercase) + ((item.surname).slice(1, item.surname.length) | lowercase))}} ({{item.surname}})</a></td>
       <td>{{item.phone}}</td>
       <td>{{item.email}}</td>
       <td>{{item.importance}}</td>
-      <td><button class="btn btn-danger"><i class="fa fa-minus-square"></i></button></td>
+      <td><button class="btn btn-danger"><i class="fa fa-minus-square-o"></i></button></td>
     </tr>
   </tbody>
 </table>
