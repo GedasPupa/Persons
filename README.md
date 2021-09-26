@@ -1,27 +1,75 @@
-# Persons
+[![TypeScript](https://badgen.net/badge/icon/typescript?icon=typescript&label)](https://typescriptlang.org)
+# Contacts page
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.3.
+_Educational Angular project_
 
-## Development server
+Contacts page helps to better organize personal contacts.
+Future improvements: CRUD, web-server, DB.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Task
 
-## Code scaffolding
+- Create Angular project with these concepts:
+    - components
+    - styling
+    - structural directives
+    - routing
+    - data binding
+    - pipes
+- Requirements:
+    - create few components with routing between them
+    - components must look estetic, tidy layout (custom css or bootstrap/ng-bootstrap/ng-materialize or other libraries)
+    - meaningful header and footer components
+    - navigation in header or sidebar
+    - code represented in git repository (+README.md)
+    - \* custom services / custom pipes are optional.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Folder structure
 
-## Build
+```
+src
+├── app
+│   ├── components
+│   |  ├── about                // 'About page'
+|   │  |  ├── app.component.css
+|   │  |  ├── app.component.html
+|   │  |  ├── app.component.spec.ts
+|   │  |  └── app.component.ts  // same file structure in all components
+│   |  ├── app                  // general layout / <router-outlet>
+│   |  ├── footer
+│   |  ├── header
+│   |  ├── person-details       // 'Add/Edit' page
+|   |  └── persons-list         // 'Contacts' main page
+│   ├── models
+│   |  ├── Person.ts
+|   │  └── PersonClass.ts
+│   ├── pipes
+│   |  ├── capitalize-first.pipe.ts
+|   │  └── to-space.pipe.ts
+│   ├── services
+│   |  ├── persons-list.service.spec.ts
+|   │  └── persons-list.service.ts
+│   └── app.module.ts
+├── assets
+│   └── angular.png
+├── environments
+│   ├── environments.prod.ts
+│   └── environments.ts
+├── favicon.ico
+├── index.html
+├── main.ts
+├── polyfills.ts
+├── styles.css
+└── test.ts
+ ```
+## Deployment procedure:
+```
+git clone https://github.com/GedasPupa/Persons.git
+Packages:     npm install
+Launch:       ng serve -o
+Build:        ng build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```
 
-## Running unit tests
+## Teacher
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+[Mindaugas Bernatavičius](https://github.com/MindaugasBernatavicius)
