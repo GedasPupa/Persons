@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { In_person } from 'src/app/models/Person';
-import { PersonClass } from 'src/app/models/PersonClass';
 import { PersonsListService } from 'src/app/services/persons-list.service';
 
 @Component({
@@ -9,7 +8,7 @@ import { PersonsListService } from 'src/app/services/persons-list.service';
   styleUrls: ['./persons-list.component.css'],
 })
 export class PersonsListComponent {
-  persons: In_person[] = [];
+  persons: In_person[];
   filterData: In_person[];
   onePerson: any;
 

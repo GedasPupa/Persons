@@ -10,6 +10,7 @@ import { AboutComponent } from './components/about/about.component';
 import { AddPersonComponent } from './components/add-person/add-person.component';
 import { RouterModule } from '@angular/router';
 import { ToSpacePipe } from './pipes/to-space.pipe';
+import { CapitalizeFirstPipe } from './pipes/capitalize-first.pipe';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { ToSpacePipe } from './pipes/to-space.pipe';
     AboutComponent,
     AddPersonComponent,
     ToSpacePipe,
+    CapitalizeFirstPipe,
   ],
   imports: [
     BrowserModule,

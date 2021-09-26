@@ -14,10 +14,10 @@
   </thead>
   <tbody>
     <tr *ngFor="let item of filterData">
-      <!-- <td><a [routerLink]="['/person-details', item.id]">{{ ((item.name.charAt(0) | uppercase) + ((item.name).slice(1, item.name.length) | lowercase))}} ({{item.name}})</a></td> -->
+      <!-- inbuilt pipes: <td><a [routerLink]="['/person-details', item.id]">{{ ((item.name.charAt(0) | uppercase) + ((item.name).slice(1, item.name.length) | lowercase))}} ({{item.name}})</a></td> -->
       <!-- <td><a [routerLink]="['/person-details', item.id]">{{ ((item.surname.charAt(0) | uppercase) + ((item.surname).slice(1, item.surname.length) | lowercase))}} ({{item.surname}})</a></td> -->
-      <td><a [routerLink]="['/person-details', item.id]">{{item.name | toSpace: '-' | toSpace: '~'}}</a></td>
-      <td><a [routerLink]="['/person-details', item.id]">{{item.surname | toSpace: '-' | toSpace: '/'}}</a></td> <!-- SK: kaip paduoti argumentu masyva (ar kelis argumentus) pipe'ui? -->
+      <td><a [routerLink]="['/person-details', item.id]">{{item.name | toSpace: '-' | toSpace: '~' | capitalizeFirst }}</a></td>
+      <td><a [routerLink]="['/person-details', item.id]">{{item.surname | toSpace: '-' | toSpace: '/' | capitalizeFirst }}</a></td> <!-- SK: kaip paduoti argumentu masyva (ar kelis argumentus) pipe'ui? -->
       <td>{{item.phone}}</td>
       <td>{{item.email}}</td>
       <td>{{item.importance}}</td>
