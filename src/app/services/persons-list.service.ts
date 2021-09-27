@@ -7,10 +7,10 @@ import { PersonClass } from '../models/PersonClass';
 })
 export class PersonsListService {
   persons: In_person[] = [
-    new PersonClass(1, 'toMAS', 'tomylinas', 37066611115, 'tomas@tomas.lt', 10),
+    new PersonClass(1, 'atoMAS', 'tomylinas', 37066611115, 'tomas@tomas.lt', 1),
     new PersonClass(2, 'jons~Petrs', 'jonukaitIS', 4422223333, 'jons@jons.lt', 9),
     new PersonClass(3, 'petrs~jONS', 'petriKAS-petruška', 37060600100, 'petrs@petrs.lt', 9),
-    new PersonClass(4, 'ona-marija', 'one/buraite', 3701000, 'ona@ona.lt', 7),
+    new PersonClass(4, 'ona-marija', 'anute/buraite', 3701000, 'ona@ona.lt', 7),
   ];
 
   getAllPersons(): In_person[] {

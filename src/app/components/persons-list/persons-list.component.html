@@ -4,11 +4,12 @@
 <table class='table' *ngIf="filterData.length > 0; else noProductsWarning">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Surname</th>
-      <th>Phone</th>
-      <th>Email</th>
-      <th>Importance</th>
+      <!-- sprendimas su 2 <i> pasitelkiant {{this.field}} kintamaji -->
+      <th>Name <i (click)="onSort('name')" class="fa fa-angle-{{this.field === 'name' ? (this.sortAsc ? 'down' : 'up') : 'down'}}"></i></th>
+      <th>Surname <i (click)="onSort('surname')" class="fa fa-angle-{{this.field === 'surname' ? (this.sortAsc ? 'down' : 'up') : 'down'}}"></i></th>
+      <th>Phone <i (click)="onSort('phone')" class="fa fa-angle-{{this.field === 'phone' ? (this.sortAsc ? 'down' : 'up') : 'down'}}"></i></th>
+      <th>Email <i (click)="onSort('email')" class="fa fa-angle-{{this.field === 'email' ? (this.sortAsc ? 'down' : 'up') : 'down'}}"></i></th>
+      <th>Importance <i (click)="onSort('importance')" class="fa fa-angle-{{this.field === 'importance' ? (this.sortAsc ? 'down' : 'up') : 'down'}}"></i></th>
       <th>Delete</th>
     </tr>
   </thead>
