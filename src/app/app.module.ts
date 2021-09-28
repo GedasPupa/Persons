@@ -11,6 +11,7 @@ import { AddPersonComponent } from './components/add-person/add-person.component
 import { RouterModule } from '@angular/router';
 import { ToSpacePipe } from './pipes/to-space.pipe';
 import { CapitalizeFirstPipe } from './pipes/capitalize-first.pipe';
+import { ImportanceComponent } from './components/importance/importance.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { CapitalizeFirstPipe } from './pipes/capitalize-first.pipe';
     AddPersonComponent,
     ToSpacePipe,
     CapitalizeFirstPipe,
+    ImportanceComponent,
   ],
   imports: [
     BrowserModule,
