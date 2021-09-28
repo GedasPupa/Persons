@@ -1,0 +1,22 @@
+.crop {
+  position: relative;
+  height: 25px;
+
+}
+.star-box {
+  position: absolute;
+  width: 75px;
+}
+.star-box-white {
+  color: #ccc;
+  position: absolute;
+  width: 75px;
+
+}
+.overflow {
+  position: absolute;
+  overflow: hidden;
+  /* width: 50px; */
+  height: 25px;
+  z-index: 1;
+}
