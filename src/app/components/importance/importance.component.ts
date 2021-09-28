@@ -16,9 +16,12 @@ import {
 })
 export class ImportanceComponent implements OnInit, OnChanges {
   @Input() inputFromParent = 0;
+  @Input() idFromParent = 0;
   @Output() ratingClicked: EventEmitter<string> = new EventEmitter<string>();
-  @Output() starClicked: EventEmitter<number> = new EventEmitter<number>();
+  @Output() ratingClicked2: EventEmitter<number> = new EventEmitter<number>();
+  @Output() starClicked: EventEmitter<any> = new EventEmitter<any>();
   plotis = 0;
+  // idz: number = 0;
 
   constructor() {}
 
@@ -28,7 +31,7 @@ export class ImportanceComponent implements OnInit, OnChanges {
     this.plotis = this.inputFromParent * 15;
   }
   ngOnInit(): void {
-    // this.plotis = this.inputFromParent * 15;
+    // this.plotis = this.inputFromParent * 15; // doesn't work OnChanges - only OnInit
   }
 
   handleRatingClick(rating: number): void {
@@ -38,11 +41,10 @@ export class ImportanceComponent implements OnInit, OnChanges {
     console.log(rating, 'STAR CLICKED!');
   }
 
-  handleStarClick(rating: number): void {
-    this.starClicked.emit(
-      rating
-      // `STAR: ${rating} clicked and passed to parent! \n\r Click was made on <div> with "${this.plotis}px" width.`
-    );
+  handleStarClick(rating: number, idz: number): void {
+    this.starClicked.emit(rating);
+    this.ratingClicked2.emit(idz);
+
     console.log(rating, 'STAR CLICKED!');
   }
 }

@@ -17,7 +17,7 @@ export class PersonsListService {
     return this.persons;
   }
 
-  setImportance(): void {
-    this.persons[0].importance = 1;
+  setImportance(id: number, star: number): void {
+    this.persons[id-1].importance = star; // perdaryti su this.persons.find(...)
   }
 }

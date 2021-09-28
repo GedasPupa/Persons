@@ -22,8 +22,11 @@
       <td>
         <app-importance
           [inputFromParent]="item.importance"
+          [idFromParent]="item.id"
           (starClicked)="OnStarClick($event)"
-          (ratingClicked)="OnRatingClick($event)">
+          (ratingClicked)="OnRatingClick($event)"
+          (ratingClicked2)="OnRatingClick2($event)"
+          >
         </app-importance>
       </td>
       <td><button class="btn btn-danger"><i class="fa fa-minus-square-o"></i></button></td>

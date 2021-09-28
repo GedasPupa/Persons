@@ -15,6 +15,7 @@ export class PersonsListComponent {
   field: string = '';
   text: string = '';
   star: number = 0;
+  id: number = 0;
 
   onFilter($event: any): void {
     let inp = $event.target.value.toLocaleLowerCase();
@@ -45,6 +46,10 @@ export class PersonsListComponent {
 
   OnStarClick(pareinaisvaiko: number) {
     this.star = pareinaisvaiko;
+  }
+
+  OnRatingClick2(pareinaisvaiko: number) {
+    this._personsListService.setImportance(pareinaisvaiko, this.star);
   }
 
   constructor(private _personsListService: PersonsListService) {
