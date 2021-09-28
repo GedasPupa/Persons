@@ -13,6 +13,8 @@ export class PersonsListComponent {
   onePerson: any;
   sortAsc: boolean = true;
   field: string = '';
+  text: string = '';
+  star: number = 0;
 
   onFilter($event: any): void {
     let inp = $event.target.value.toLocaleLowerCase();
@@ -35,6 +37,14 @@ export class PersonsListComponent {
       });
       this.sortAsc = !this.sortAsc;
     }
+  }
+
+  OnRatingClick(pareinaisvaiko: string) {
+    this.text = pareinaisvaiko;
+  }
+
+  OnStarClick(pareinaisvaiko: number) {
+    this.star = pareinaisvaiko;
   }
 
   constructor(private _personsListService: PersonsListService) {

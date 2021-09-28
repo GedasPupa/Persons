@@ -1,19 +1,19 @@
-<div class="crop">
+<div class="crop" (click)="handleRatingClick(plotis/15)">
   <div class="overflow" [style.width.px]="plotis">
     <div class="star-box">
-      <span><i class="fa fa-star"></i></span>
-      <span><i class="fa fa-star"></i></span>
-      <span><i class="fa fa-star"></i></span>
-      <span><i class="fa fa-star"></i></span>
-      <span><i class="fa fa-star"></i></span>
+      <span><i (click)="handleStarClick(1)" class="fa fa-star"></i></span>
+      <span><i (click)="handleStarClick(2)" class="fa fa-star"></i></span>
+      <span><i (click)="handleStarClick(3)" class="fa fa-star"></i></span>
+      <span><i (click)="handleStarClick(4)" class="fa fa-star"></i></span>
+      <span><i (click)="handleStarClick(5)" class="fa fa-star"></i></span>
     </div>
   </div>
   <div class="star-box-white">
-    <span><i class="fa fa-star"></i></span>
-    <span><i class="fa fa-star"></i></span>
-    <span><i class="fa fa-star"></i></span>
-    <span><i class="fa fa-star"></i></span>
-    <span><i class="fa fa-star"></i></span>
+    <span><i (click)="handleStarClick(1)" class="fa fa-star"></i></span>
+    <span><i (click)="handleStarClick(2)" class="fa fa-star"></i></span>
+    <span><i (click)="handleStarClick(3)" class="fa fa-star"></i></span>
+    <span><i (click)="handleStarClick(4)" class="fa fa-star"></i></span>
+    <span><i (click)="handleStarClick(5)" class="fa fa-star"></i></span>
   </div>
 </div>
 

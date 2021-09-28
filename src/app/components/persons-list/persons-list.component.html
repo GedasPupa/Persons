@@ -19,7 +19,13 @@
       <td><a [routerLink]="['/person-details', item.id]">{{item.surname | toSpace: '-' | toSpace: '/' | capitalizeFirst }}</a></td> <!-- SK: kaip paduoti argumentu masyva (ar kelis argumentus) pipe'ui? -->
       <td>{{item.phone}}</td>
       <td>{{item.email}}</td>
-      <td><app-importance [inputFromParent]="item.importance"></app-importance></td>
+      <td>
+        <app-importance
+          [inputFromParent]="item.importance"
+          (starClicked)="OnStarClick($event)"
+          (ratingClicked)="OnRatingClick($event)">
+        </app-importance>
+      </td>
       <td><button class="btn btn-danger"><i class="fa fa-minus-square-o"></i></button></td>
     </tr>
   </tbody>
@@ -27,3 +33,7 @@
 <ng-template #noProductsWarning>
   <p class="alert alert-warning">Sorry, no data!</p>
 </ng-template>
+<p>{{text}}</p>
+<hr *ngIf="star !== 0">
+<p *ngIf="star !== 0">STAR {{star}} was clicked.</p>
+<hr *ngIf="star !== 0">

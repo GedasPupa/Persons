@@ -16,4 +16,8 @@ export class PersonsListService {
   getAllPersons(): In_person[] {
     return this.persons;
   }
+
+  setImportance(): void {
+    this.persons[0].importance = 1;
+  }
 }
