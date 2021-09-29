@@ -4,7 +4,7 @@ interface In_person {
   surname: string;
   phone: number;
   email: string;
-  importance: number;
+  importance: number[];
 }
 
 export { In_person };

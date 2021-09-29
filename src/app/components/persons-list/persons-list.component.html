@@ -20,8 +20,11 @@
       <td>{{item.phone}}</td>
       <td>{{item.email}}</td>
       <td>
+        <!-- [inputFromParent]="item.importance" -->
+
         <app-importance
-          [inputFromParent]="item.importance"
+          [inputFromParent]="getAverageRating(item.id - 1)"
+
           [idFromParent]="item.id"
           (starClicked)="OnStarClick($event)"
           (ratingClicked)="OnRatingClick($event)"

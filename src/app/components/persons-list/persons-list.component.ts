@@ -52,6 +52,13 @@ export class PersonsListComponent {
     this._personsListService.setImportance(pareinaisvaiko, this.star);
   }
 
+  getAverageRating(id: number): number {
+    return (
+      this.filterData[id].importance.reduce((a, b) => a + b) /
+      this.filterData[id].importance.length
+    );
+  }
+
   constructor(private _personsListService: PersonsListService) {
     this.persons = this._personsListService.getAllPersons();
     this.filterData = this.persons;

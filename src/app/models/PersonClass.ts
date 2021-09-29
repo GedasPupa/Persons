@@ -6,14 +6,14 @@ class PersonClass implements In_person {
   surname: string;
   phone: number;
   email: string;
-  importance: number;
+  importance: number[];
   constructor(
     id: number,
     name: string,
     surname: string,
     phone: number,
     email: string,
-    importance: number
+    importance: number[]
   ) {
     this.id = id;
     this.name = name;

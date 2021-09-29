@@ -38,13 +38,10 @@ export class ImportanceComponent implements OnInit, OnChanges {
     this.ratingClicked.emit(
       `Rating ${this.plotis / 15} was clicked. Seen width: "${this.plotis}px".`
     );
-    console.log(rating, 'STAR CLICKED!');
   }
 
   handleStarClick(rating: number, idz: number): void {
     this.starClicked.emit(rating);
     this.ratingClicked2.emit(idz);
-
-    console.log(rating, 'STAR CLICKED!');
   }
 }

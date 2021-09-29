@@ -16,7 +16,7 @@ export class PersonDetailsComponent {
     surname: '',
     phone: 0,
     email: '',
-    importance: 0,
+    importance: [0],
   };
   onePerson: any; // - apeinam undefined
   id: any;
@@ -43,5 +43,12 @@ export class PersonDetailsComponent {
 
   onBack(): void {
     this._router.navigate(['person-details']);
+  }
+
+  getAverageRating(): number {
+    return (
+      this.person.importance.reduce((a, b) => a + b) /
+      this.person.importance.length
+    );
   }
 }
