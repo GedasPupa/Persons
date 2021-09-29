@@ -42,7 +42,7 @@ export class PersonDetailsComponent {
   }
 
   onBack(): void {
-    this._router.navigate(['person-details']);
+    this._router.navigate(['persons']);
   }
 
   getAverageRating(): number {

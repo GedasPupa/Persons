@@ -30,10 +30,10 @@ import { ImportanceComponent } from './components/importance/importance.componen
     BrowserModule,
     RouterModule.forRoot([
       { path: '', component: PersonsListComponent },
-      { path: 'persons-list', component: PersonsListComponent },
+      { path: 'persons', component: PersonsListComponent },
+      { path: 'person', component: PersonDetailsComponent },
+      { path: 'person/:id', component: PersonDetailsComponent },
       { path: 'about', component: AboutComponent },
-      { path: 'person-details', component: PersonDetailsComponent },
-      { path: 'person-details/:id', component: PersonDetailsComponent },
     ]),
   ],
   providers: [],

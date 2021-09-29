@@ -15,8 +15,8 @@
   </thead>
   <tbody>
     <tr *ngFor="let item of filterData">
-      <td><a [routerLink]="['/person-details', item.id]">{{item.name | toSpace: '-' | toSpace: '~' | capitalizeFirst }}</a></td>
-      <td><a [routerLink]="['/person-details', item.id]">{{item.surname | toSpace: '-' | toSpace: '/' | capitalizeFirst }}</a></td> <!-- SK: kaip paduoti argumentu masyva (ar kelis argumentus) pipe'ui? -->
+      <td><a [routerLink]="['/person', item.id]">{{item.name | toSpace: '-' | toSpace: '~' | capitalizeFirst }}</a></td>
+      <td><a [routerLink]="['/person', item.id]">{{item.surname | toSpace: '-' | toSpace: '/' | capitalizeFirst }}</a></td> <!-- SK: kaip paduoti argumentu masyva (ar kelis argumentus) pipe'ui? -->
       <td>{{item.phone}}</td>
       <td>{{item.email}}</td>
       <td>
