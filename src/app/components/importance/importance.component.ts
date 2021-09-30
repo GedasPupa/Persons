@@ -7,7 +7,7 @@ import {
   Output,
   SimpleChanges,
 } from '@angular/core';
-// import { EventEmitter } from 'stream';
+// import { EventEmitter } from 'stream'; !!!!! NOT FROM 'stream' !!!!!
 
 @Component({
   selector: 'app-importance',
@@ -16,12 +16,14 @@ import {
 })
 export class ImportanceComponent implements OnInit, OnChanges {
   @Input() inputFromParent = 0;
+  @Input() inputFromParent2 = 0;
   @Input() idFromParent = 0;
   @Output() ratingClicked: EventEmitter<string> = new EventEmitter<string>();
-  @Output() ratingClicked2: EventEmitter<number> = new EventEmitter<number>();
   @Output() starClicked: EventEmitter<any> = new EventEmitter<any>();
+  @Output() starClicked2: EventEmitter<number> = new EventEmitter<number>();
+
+  // id = 0; // do not helps on STAR bug after sorting... :/
   plotis = 0;
-  // idz: number = 0;
 
   constructor() {}
 
@@ -29,6 +31,8 @@ export class ImportanceComponent implements OnInit, OnChanges {
     //Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
     //Add '${implements OnChanges}' to the class.
     this.plotis = this.inputFromParent * 15;
+    this.plotis = this.inputFromParent2 * 15;
+    // this.id = this.idFromParent;
   }
   ngOnInit(): void {
     // this.plotis = this.inputFromParent * 15; // doesn't work OnChanges - only OnInit
@@ -40,8 +44,9 @@ export class ImportanceComponent implements OnInit, OnChanges {
     );
   }
 
-  handleStarClick(rating: number, idz: number): void {
-    this.starClicked.emit(rating);
-    this.ratingClicked2.emit(idz);
+  handleStarClick(star: number, starOnId: number): void {
+    console.log('STAR: ', star, ' starID: ', starOnId);
+    this.starClicked.emit(star);
+    this.starClicked2.emit(starOnId);
   }
 }

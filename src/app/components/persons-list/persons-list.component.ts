@@ -27,28 +27,38 @@ export class PersonsListComponent {
   onSort(field: string): void {
     let fieldAsKey = field as keyof In_person;
     this.field = field;
+
+    // refactored with array average for 'importance' field sorting:
     if (this.sortAsc) {
       this.filterData.sort((a, b) => {
-        return a[fieldAsKey] < b[fieldAsKey] ? -1 : 0;
+        if (field === 'importance') {
+          return a.getAverageRating() < b.getAverageRating() ? -1 : 0;
+        } else {
+          return a[fieldAsKey] < b[fieldAsKey] ? -1 : 0;
+        }
       });
       this.sortAsc = !this.sortAsc;
     } else {
       this.filterData.sort((a, b) => {
-        return a[fieldAsKey] > b[fieldAsKey] ? -1 : 0;
+        if (field === 'importance') {
+          return a.getAverageRating() > b.getAverageRating() ? -1 : 0;
+        } else {
+          return a[fieldAsKey] > b[fieldAsKey] ? -1 : 0;
+        }
       });
       this.sortAsc = !this.sortAsc;
     }
   }
 
-  OnRatingClick(pareinaisvaiko: string) {
+  OnRatingClick(pareinaisvaiko: string): void {
     this.text = pareinaisvaiko;
   }
 
-  OnStarClick(pareinaisvaiko: number) {
+  OnStarClick(pareinaisvaiko: number): void {
     this.star = pareinaisvaiko;
   }
 
-  OnRatingClick2(pareinaisvaiko: number) {
+  OnstarClick2(pareinaisvaiko: number): void {
     this._personsListService.setImportance(pareinaisvaiko, this.star);
   }
 

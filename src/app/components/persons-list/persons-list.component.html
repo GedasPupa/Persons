@@ -24,11 +24,12 @@
 
         <app-importance
           [inputFromParent]="getAverageRating(item.id - 1)"
+          [inputFromParent2]="item.getAverageRating()"
 
           [idFromParent]="item.id"
           (starClicked)="OnStarClick($event)"
+          (starClicked2)="OnstarClick2($event)"
           (ratingClicked)="OnRatingClick($event)"
-          (ratingClicked2)="OnRatingClick2($event)"
           >
         </app-importance>
       </td>

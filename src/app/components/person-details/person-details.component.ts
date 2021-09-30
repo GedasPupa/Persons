@@ -17,6 +17,7 @@ export class PersonDetailsComponent {
     phone: 0,
     email: '',
     importance: [0],
+    getAverageRating(){return -1}
   };
   onePerson: any; // - apeinam undefined
   id: any;
