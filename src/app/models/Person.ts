@@ -5,6 +5,7 @@ interface In_person {
   phone: number;
   email: string;
   importance: number[];
+  getAverageRating(): number;
 }
 
 export { In_person };

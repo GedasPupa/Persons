@@ -7,10 +7,10 @@ import { PersonClass } from '../models/PersonClass';
 })
 export class PersonsListService {
   persons: In_person[] = [
-    new PersonClass(1, 'atoMAS', 'tomylinas', 3706661111, 'tomas@tomas.lt', [4.7]),
-    new PersonClass(2, 'jons~Petrs', 'jonukaitIS', 4422223333, 'jons@jons.lt', [2.6]),
-    new PersonClass(3, 'petrs~jONS', 'petriKAS-petruška', 37060600100, 'petrs@petrs.lt', [4.4]),
-    new PersonClass(4, 'ona-marija', 'anute/buraite', 3701000, 'ona@ona.lt', [3.5]),
+    new PersonClass(1, 'atoMAS-2', 'tomylinas', 3706661111, 'tomas@tomas.lt', [4.7, 1, 1, 1]),
+    new PersonClass(2, 'jons~Petrs-3', 'jonukaitIS', 4422223333, 'jons@jons.lt', [3.6, 3]),
+    new PersonClass(3, 'petrs~jONS-5', 'petriKAS-petruška', 37060600100, 'petrs@petrs.lt', [4.4, 5, 5]),
+    new PersonClass(4, 'ona-marija-4', 'anute/buraite', 3701000, 'ona@ona.lt', [5, 3, 4]),
   ];
 
   getAllPersons(): In_person[] {
@@ -22,6 +22,6 @@ export class PersonsListService {
   }
 
   getAverageRating(id: number) {
-    return (this.persons[id].importance.reduce((a, b) => a + b))/this.persons.length;
+    return (this.persons[id].importance.reduce((a, b) => a + b))/this.persons[id].importance.length;
   }
 }

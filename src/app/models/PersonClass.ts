@@ -22,6 +22,9 @@ class PersonClass implements In_person {
     this.email = email;
     this.importance = importance;
   }
+  getAverageRating(): number {
+    return this.importance.reduce((a, b) => a + b)/this.importance.length;
+  }
 }
 
 export { PersonClass };
