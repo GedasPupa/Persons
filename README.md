@@ -37,6 +37,7 @@ src
 │   |  ├── app                  // general layout / <router-outlet>
 │   |  ├── footer
 │   |  ├── header
+│   |  ├── importance
 │   |  ├── person-details       // 'Add/Edit' page
 |   |  └── persons-list         // 'Contacts' main page
 │   ├── models
