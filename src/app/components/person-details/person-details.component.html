@@ -9,7 +9,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngIf="person.id !== 0; else noPerson">
+    <tr *ngIf="person !== undefined; else noPerson">
       <td><input type="text" value={{person.name}} ></td>
       <td><input type="text" value={{person.surname}}></td>
       <td><input type="text" value={{person.phone}}></td>
@@ -30,6 +30,6 @@
 <div class="delete-edit-btns">
   <a [routerLink]="['/persons']" class="btn btn-secondary">Back</a>
   <button class="btn btn-dark" (click)="onBack()">Back to Black</button>
-  <button class="btn btn-danger" *ngIf="person.id !== 0">Delete</button>
+  <button class="btn btn-danger" *ngIf="person !== undefined">Delete</button>
   <button class="btn btn-success">Save</button>
 </div>
