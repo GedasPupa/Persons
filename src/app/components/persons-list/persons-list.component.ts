@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { In_person } from 'src/app/models/Person';
 import { PersonsListService } from 'src/app/services/persons-list.service';
@@ -16,6 +17,7 @@ export class PersonsListComponent {
   text: string = '';
   star: number = 0;
   id: number = 0;
+  error: any;
 
   onFilter($event: any): void {
     let inp = $event.target.value.toLocaleLowerCase();
@@ -69,8 +71,12 @@ export class PersonsListComponent {
     );
   }
 
-  constructor(private _personsListService: PersonsListService) {
+  constructor(
+    private _personsListService: PersonsListService,
+    private router: Router
+  ) {
     this.persons = this._personsListService.getAllPersons();
     this.filterData = this.persons;
+    // this.error = this.router.routerState;
   }
 }
