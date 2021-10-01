@@ -33,8 +33,14 @@ import { ImportanceComponent } from './components/importance/importance.componen
       { path: '', component: PersonsListComponent },
       { path: 'persons', component: PersonsListComponent },
       { path: 'person', component: PersonDetailsComponent },
-      { path: 'person/:id', canActivate: [PersonGuard], component: PersonDetailsComponent },
+      {
+        path: 'person/:id',
+        canActivate: [PersonGuard],
+        resolve: [PersonGuard],
+        component: PersonDetailsComponent,
+      },
       { path: 'about', component: AboutComponent },
+      { path: '**', redirectTo: 'persons', pathMatch: 'full' }
     ]),
   ],
   providers: [],

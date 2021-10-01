@@ -40,6 +40,9 @@ src
 │   |  ├── importance
 │   |  ├── person-details       // 'Add/Edit' page
 |   |  └── persons-list         // 'Contacts' main page
+│   ├── guards
+│   |  ├── person.guard.spec.ts
+|   │  └── person.guard.ts
 │   ├── models
 │   |  ├── Person.ts
 |   │  └── PersonClass.ts

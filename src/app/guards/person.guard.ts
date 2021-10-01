@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import {
   ActivatedRouteSnapshot,
   CanActivate,
+  Resolve,
   Router,
   RouterStateSnapshot,
   UrlTree,
@@ -13,7 +14,10 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class PersonGuard implements CanActivate {
+export class PersonGuard implements CanActivate, Resolve<In_person> {
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+    return this.personsListService.getAllPersons()[0]; // TODO
+  }
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
@@ -27,19 +31,19 @@ export class PersonGuard implements CanActivate {
     // console.log(state);
 
     const id = +route.params.id;
-    if (isNaN(id) || id < 1) {
 
-    }
-    let persons: In_person[] = this._personsListService.getAllPersons();
-    if (!persons.find(p => p.id === id)) {
-      console.log('NO PERSON WITH ID: ', id);
-      this.router.navigate(['/persons'], { state: { "error": `Invalid parameter: ${id}`}});
+    let persons: In_person[] = this.personsListService.getAllPersons();
+    if (!persons.find((p) => p.id === id)) {
+      console.log('No person with id: ', route.url[1].path); // same same kas === route.params.id
+      this.router.navigate(['/person'], {
+        state: { error: `Invalid parameter: ${route.params.id}` },
+      });
       return false;
     }
-
     return true;
   }
-  constructor(private _personsListService: PersonsListService, private router: Router) {
-
-  }
+  constructor(
+    private personsListService: PersonsListService,
+    private router: Router
+  ) {}
 }
