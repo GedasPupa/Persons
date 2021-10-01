@@ -11,18 +11,9 @@ import { In_person } from 'src/app/models/Person';
 })
 export class PersonDetailsComponent {
   person: In_person | undefined = undefined;
-  //  = {
-  //   id: 0,
-  //   name: '',
-  //   surname: '',
-  //   phone: 0,
-  //   email: '',
-  //   importance: [0],
-  //   getAverageRating(){return -1}
-  // };
-  // onePerson: any; // - apeinam undefined
   id: any;
   sub: any;
+  error: string | undefined;
 
   constructor(
     private _Activatedroute: ActivatedRoute,
@@ -33,6 +24,7 @@ export class PersonDetailsComponent {
       'this._Activatedroute.snapshot.paramMap.get("id"): ',
       this._Activatedroute.snapshot.paramMap.get('id') // tiesioginis budas pasiimti 'id' is url (be .susbscribe()).
     );
+    this.error = this._router.getCurrentNavigation()?.extras.state?.error;
 
     // this.id = this._Activatedroute.snapshot.paramMap.get('id');
     // let persons = this._personsListService.getAllPersons();
@@ -43,11 +35,7 @@ export class PersonDetailsComponent {
     this.sub = this._Activatedroute.paramMap.subscribe((params) => {
       this.id = params.get('id');
       let persons = this._personsListService.getAllPersons();
-
       this.person = persons.find((p) => p.id == this.id);
-
-      // this.onePerson = persons.find((p) => p.id == this.id); // - apeinam undefined
-      // this.onePerson ? (this.person = this.onePerson) : undefined;
     });
   }
 

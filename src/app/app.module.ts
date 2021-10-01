@@ -1,3 +1,4 @@
+import { PersonGuard } from './guards/person.guard';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -32,8 +33,14 @@ import { ImportanceComponent } from './components/importance/importance.componen
       { path: '', component: PersonsListComponent },
       { path: 'persons', component: PersonsListComponent },
       { path: 'person', component: PersonDetailsComponent },
-      { path: 'person/:id', component: PersonDetailsComponent },
+      {
+        path: 'person/:id',
+        canActivate: [PersonGuard],
+        resolve: [PersonGuard],
+        component: PersonDetailsComponent,
+      },
       { path: 'about', component: AboutComponent },
+      { path: '**', redirectTo: 'persons', pathMatch: 'full' }
     ]),
   ],
   providers: [],
