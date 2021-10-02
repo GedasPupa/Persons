@@ -6,6 +6,7 @@ import { PersonClass } from '../models/PersonClass';
   providedIn: 'root',
 })
 export class PersonsListService {
+  id: number = 0;
   persons: In_person[] = [
     new PersonClass(1, 'atoMAS-2', 'tomylinas', 3706661111, 'tomas@tomas.lt', [4.7, 1, 1, 1]),
     new PersonClass(2, 'jons~Petrs-3', 'jonukaitIS', 4422223333, 'jons@jons.lt', [3.6, 3]),
@@ -27,5 +28,18 @@ export class PersonsListService {
 
   getAverageRating(id: number) {
     return (this.persons[id].importance.reduce((a, b) => a + b))/this.persons[id].importance.length;
+  }
+
+  getLastId(): number {
+    for (const i in this.persons) {
+      if (this.persons[i].id > this.id) {
+        this.id = this.persons[i].id;
+      }
+    }
+    return this.id + 1;
+  }
+
+  addNewPerson(person: In_person) {
+    this.persons.push(person);
   }
 }

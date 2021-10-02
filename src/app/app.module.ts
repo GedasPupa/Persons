@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { PersonGuard } from './guards/person.guard';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -13,6 +14,7 @@ import { RouterModule } from '@angular/router';
 import { ToSpacePipe } from './pipes/to-space.pipe';
 import { CapitalizeFirstPipe } from './pipes/capitalize-first.pipe';
 import { ImportanceComponent } from './components/importance/importance.component';
+import { TemplateFormComponent } from './components/template-form/template-form.component';
 
 @NgModule({
   declarations: [
@@ -26,22 +28,27 @@ import { ImportanceComponent } from './components/importance/importance.componen
     ToSpacePipe,
     CapitalizeFirstPipe,
     ImportanceComponent,
+    TemplateFormComponent,
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot([
-      { path: '', component: PersonsListComponent },
-      { path: 'persons', component: PersonsListComponent },
-      { path: 'person', component: PersonDetailsComponent },
-      {
-        path: 'person/:id',
-        canActivate: [PersonGuard],
-        resolve: [PersonGuard],
-        component: PersonDetailsComponent,
-      },
-      { path: 'about', component: AboutComponent },
-      { path: '**', redirectTo: 'persons', pathMatch: 'full' }
-    ]),
+    FormsModule,
+    RouterModule.forRoot(
+      [
+        { path: '', component: PersonsListComponent },
+        { path: 'persons', component: PersonsListComponent },
+        { path: 'person', component: PersonDetailsComponent },
+        {
+          path: 'person/:id',
+          canActivate: [PersonGuard],
+          resolve: [PersonGuard],
+          component: PersonDetailsComponent,
+        },
+        { path: 'about', component: AboutComponent },
+        { path: 'template-form', component: TemplateFormComponent },
+        { path: '**', redirectTo: 'persons', pathMatch: 'full' },
+      ]
+    ),
   ],
   providers: [],
   bootstrap: [AppComponent],
