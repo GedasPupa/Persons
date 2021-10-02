@@ -1,4 +1,5 @@
 <p *ngIf="error" class="alert alert-danger">ERROR! No such id! {{error}}</p>
+<form #formInfo="ngForm" action="GET">
 <table class='table'>
   <thead>
     <tr>
@@ -11,26 +12,30 @@
   </thead>
   <tbody>
     <tr *ngIf="person !== undefined; else noPerson">
-      <td><input type="text" value={{person.name}} ></td>
-      <td><input type="text" value={{person.surname}}></td>
-      <td><input type="text" value={{person.phone}}></td>
-      <td><input type="text" value={{person.email}}></td>
-      <td><input type="text" value={{getAverageRating()}}></td>
+      <td><input type="text" [(ngModel)]="person.name" name="name"></td>
+      <td><input type="text" [(ngModel)]="person.surname" name="surname"></td>
+      <td><input type="text" [(ngModel)]="person.phone" name="phone"></td>
+      <td><input type="text" [(ngModel)]="person.email" name="email"></td>
+      <td><input type="text" [(ngModel)]="importance" name="importance"></td>
     </tr>
   </tbody>
 </table>
+<!-- <button type="submit" (click)="onSubmit($event)" class="btn btn-success">Save</button> -->
 <ng-template #noPerson>
   <tr>
-    <td><input type="text" value=''></td>
-    <td><input type="text" value=''></td>
-    <td><input type="text" value=''></td>
-    <td><input type="text" value=''></td>
-    <td><input type="text" value=''></td>
+    <td><input type="text" value='' name="name" ngModel></td>
+    <td><input type="text" value='' name="surname" ngModel></td>
+    <td><input type="text" value='' name="phone" ngModel></td>
+    <td><input type="text" value='' name="email" ngModel></td>
+    <td><input type="text" value='' name="importance" ngModel></td>
   </tr>
 </ng-template>
 <div class="delete-edit-btns">
   <a [routerLink]="['/persons']" class="btn btn-secondary">Back</a>
   <button class="btn btn-dark" (click)="onBack()">Back to Black</button>
   <button class="btn btn-danger" *ngIf="person !== undefined">Delete</button>
-  <button class="btn btn-success">Save</button>
+  <button type="submit" (click)="onSubmit($event)" class="btn btn-success">Save</button>
 </div>
+</form>
+
+<hr><p>FORM DATA: {{ formInfo.value | json }}</p>
