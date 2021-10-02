@@ -34,8 +34,10 @@ export class PersonDetailsComponent {
   ngOnInit() {
     this.sub = this._Activatedroute.paramMap.subscribe((params) => {
       this.id = params.get('id');
-      let persons = this._personsListService.getAllPersons();
-      this.person = persons.find((p) => p.id == this.id);
+      // let persons = this._personsListService.getAllPersons();
+      // this.person = persons.find((p) => p.id == this.id);
+      // or service method getOnePerson():
+      this.person = this._personsListService.getOnePerson(this.id);
     });
   }
 

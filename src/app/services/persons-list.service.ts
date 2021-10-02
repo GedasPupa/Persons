@@ -17,6 +17,10 @@ export class PersonsListService {
     return this.persons;
   }
 
+  getOnePerson(id: number): In_person {
+    return this.persons.filter(p => p.id === +id)[0];
+  }
+
   setImportance(id: number, star: number): void {
     this.persons[id-1].importance.push(star); 
   }
