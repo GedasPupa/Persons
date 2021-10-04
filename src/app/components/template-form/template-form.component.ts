@@ -19,6 +19,7 @@ import { PersonClass } from 'src/app/models/PersonClass';
           ngModel
           aria-describedby="nameHelp"
           placeholder="Enter name"
+          required
         />
         <small id="namelHelp" class="form-text text-muted"
           >We'll never share your secret name with anyone else.</small
@@ -34,6 +35,7 @@ import { PersonClass } from 'src/app/models/PersonClass';
           ngModel
           aria-describedby="surnameHelp"
           placeholder="Enter surname"
+          required
         />
         <small id="surnameHelp" class="form-text text-muted"
           >We'll never share your surname with anyone else.</small
@@ -49,6 +51,7 @@ import { PersonClass } from 'src/app/models/PersonClass';
           ngModel
           aria-describedby="phoneHelp"
           placeholder="Enter phone number"
+          required
         />
         <small id="phoneHelp" class="form-text text-muted"
           >We'll never share your phone with anyone else.</small
@@ -64,6 +67,7 @@ import { PersonClass } from 'src/app/models/PersonClass';
           ngModel
           aria-describedby="emailHelp"
           placeholder="Enter email"
+          required
         />
         <small id="emailHelp" class="form-text text-muted"
           >We'll never share your email with anyone else.</small
@@ -81,6 +85,14 @@ import { PersonClass } from 'src/app/models/PersonClass';
         <button class="btn btn-info" (click)="onRefresh()">Refresh</button>
       </div>
     </form>
+    <br />
+    <hr />
+    <p>FORM DATA (.value): {{ formVar.value | json }}</p>
+    <p>SUBMITTED (.submitted): {{ formVar.submitted | json }}</p>
+    <p>VALID (.valid): {{ formVar.valid | json }}</p>
+    <p>TOUCHED (.touched): {{ formVar.touched | json }}</p>
+    <p>DIRTY (.dirty): {{ formVar.dirty | json }}</p>
+    <hr />
     <!-- <p>FORM DATA: {{ formVar.value | json }}</p> -->
   `,
   styles: ['.form-buttons { display: flex; gap: 12px; margin-top: 21px; }'],
@@ -106,19 +118,23 @@ export class TemplateFormComponent implements OnInit {
     });
   }
 
-  onSubmit($event: MouseEvent) {
-    this.formData = this.formVar.value;
-    let id = this._personsListService.getLastId();
-    let newPerson: In_person = new PersonClass(
-      id,
-      this.formData.name,
-      this.formData.surname,
-      this.formData.phone,
-      this.formData.email,
-      [Math.floor(Math.random() * 5 + 1)]
-    );
-    this._personsListService.addNewPerson(newPerson);
-    alert(`New person ${newPerson.name} added!`);
-    this.router.navigate(['/persons']);
+  onSubmit($event: MouseEvent): void {
+    if (this.formVar.valid) {
+      this.formData = this.formVar.value;
+      let id = this._personsListService.getLastId();
+      let newPerson: In_person = new PersonClass(
+        id,
+        this.formData.name,
+        this.formData.surname,
+        this.formData.phone,
+        this.formData.email,
+        [Math.floor(Math.random() * 5 + 1)]
+      );
+      this._personsListService.addNewPerson(newPerson);
+      alert(`New person ${newPerson.name} added!`);
+    } else {
+      alert(`Form not valid!`);
+    }
+    // this.router.navigate(['/persons']);
   }
 }
